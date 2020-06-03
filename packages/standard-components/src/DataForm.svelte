@@ -59,7 +59,7 @@
 </script>
 
 <form class="uk-form" on:submit|preventDefault>
-  <h4>{modelDef.name}</h4>
+  <h3>Create {modelDef.name}</h3>
   <div>
     {#each fields as field}
       <div class="uk-margin">
@@ -71,11 +71,67 @@
       </div>
     {/each}
   </div>
-  <button on:click={save}>SAVE</button>
+  <button class="primary" on:click={save}>Save</button>
 </form>
 
 <style>
+  .uk-form {
+    padding: 10px;
+  }
+
   .form-label {
+    text-transform: capitalize;
     font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .uk-margin {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 3px;
+    padding: 20px 30px;
+    color: white;
+    width: 100%;
+  }
+
+  button:hover:not([disabled]) {
+    filter: brightness(85%);
+  }
+
+  .primary {
+    border: solid 0 #0055ff;
+    background-color: #0055ff;
+  }
+
+  input {
+    box-sizing: border-box;
+    color: #393c44;
+    height: 32px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: solid 1px #e8e8ef;
+    padding: 20px;
+    margin: 0;
+    background-color: white;
+  }
+
+  input::placeholder {
+    color: var(--grey-medium);
+  }
+
+  input:focus {
+    box-shadow: 0 4px 16px 0 rgba(57, 60, 68, 0.08);
+  }
+
+  input:disabled {
+    background: var(--grey-medium);
   }
 </style>
